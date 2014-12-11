@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>炸弹人游戏</title>
+    <meta content="text/html" charset="utf-8">
+
+    <script src="../Scripts/jquery-1.7.js"></script>
+
+    <script src="../Scripts/myTool/frame/yOOP.js"></script>
+    <script src="../Scripts/myTool/extend/jsExtend.js"></script>
+    <script src="../Scripts/myTool/tool/yTool.js"></script>
+    <script src="../Scripts/myTool/pattern/designPattern/Observer.js"></script>
+
+    <script src="../Scripts/plugIn/progress/jquery.progressbar.js"></script>
+
+    <!--yEngine2D-->
+    <script src="../Scripts/yEngine2D/Tool.js"></script>
+
+    <script src="../Scripts/yEngine2D/ImgLoader.js"></script>
+
+    <script src="../Scripts/yEngine2D/Director.js"></script>
+
+    <script src="../Scripts/yEngine2D/Main.js"></script>
+    <script src="../Scripts/yEngine2D/Hash.js"></script>
+    <script src="../Scripts/yEngine2D/Scene.js"></script>
+    <script src="../Scripts/yEngine2D/Collection.js"></script>
+    <script src="../Scripts/yEngine2D/Layer.js"></script>
+    <script src="../Scripts/yEngine2D/Sprite.js"></script>
+    <script src="../Scripts/yEngine2D/Animation.js"></script>
+
+    <script src="../Scripts/yEngine2D/EventManager.js"></script>
+    <script src="../Scripts/yEngine2D/Event.js"></script>
+
+    <script src="../Scripts/yEngine2D/Bitmap.js"></script>
+
+    <script src="../Scripts/yEngine2D/AStar.js"></script>
+
+    <script src="../Scripts/yEngine2D/collision.js"></script>
+
+    <script src="../Scripts/yEngine2D/Config.js"></script>
+
+
+
+    <!--bomber-->
+    <script src="../Scripts/bomber/config.js"></script>
+
+
+    <script src="../Scripts/bomber/factory/bitmapFactory.js"></script>
+    <script src="../Scripts/bomber/factory/spriteFactory.js"></script>
+    <script src="../Scripts/bomber/factory/layerFactory.js"></script>
+
+
+    <script src="../Scripts/bomber/data/map/mapData.js"></script>
+    <script src="../Scripts/bomber/data/map/terrainData.js"></script>
+    <script src="../Scripts/bomber/data/image/images.js"></script>
+    <script src="../Scripts/bomber/data/sprite/data.js"></script>
+    <script src="../Scripts/bomber/data/frames/frames.js"></script>
+
+
+    <script src="../Scripts/bomber/event/KeyState.js"></script>
+
+
+    <script src="../Scripts/bomber/js/sprite/MoveSprite.js"></script>
+
+    <script src="../Scripts/bomber/js/Game.js"></script>
+    <script src="../Scripts/bomber/js/main.js"></script>
+
+    <script src="../Scripts/bomber/js/dataOperate/mapDataOperate.js"></script>
+    <script src="../Scripts/bomber/js/dataOperate/terrainDataOperate.js"></script>
+
+    <script src="../Scripts/bomber/js/sprite/FireSprite.js"></script>
+    <script src="../Scripts/bomber/js/sprite/BombSprite.js"></script>
+    <script src="../Scripts/bomber/js/sprite/MapElementSprite.js"></script>
+    <script src="../Scripts/bomber/js/sprite/PlayerSprite.js"></script>
+
+    <script src="../Scripts/bomber/js/layer/FireLayer.js"></script>
+    <script src="../Scripts/bomber/js/layer/BombLayer.js"></script>
+    <script src="../Scripts/bomber/js/layer/CharacterLayer.js"></script>
+    <script src="../Scripts/bomber/js/layer/MapLayer.js"></script>
+    <script src="../Scripts/bomber/js/layer/PlayerLayer.js"></script>
+    <script src="../Scripts/bomber/js/layer/EnemyLayer.js"></script>
+    <script src="../Scripts/bomber/js/sprite/EnemySprite.js"></script>
+
+    <script src="../Scripts/bomber/pattern/state/PlayerState.js"></script>
+    <script src="../Scripts/bomber/pattern/state/StandState.js"></script>
+    <script src="../Scripts/bomber/pattern/state/WalkState.js"></script>
+    <script src="../Scripts/bomber/pattern/state/WalkState_X.js"></script>
+    <script src="../Scripts/bomber/pattern/state/WalkState_Y.js"></script>
+    <script src="../Scripts/bomber/pattern/state/standState/StandDownState.js"></script>
+    <script src="../Scripts/bomber/pattern/state/standState/StandLeftState.js"></script>
+    <script src="../Scripts/bomber/pattern/state/standState/StandRightState.js"></script>
+    <script src="../Scripts/bomber/pattern/state/standState/StandUpState.js"></script>
+    <script src="../Scripts/bomber/pattern/state/walkState/WalkDownState.js"></script>
+    <script src="../Scripts/bomber/pattern/state/walkState/WalkLeftState.js"></script>
+    <script src="../Scripts/bomber/pattern/state/walkState/WalkRightState.js"></script>
+    <script src="../Scripts/bomber/pattern/state/walkState/WalkUpState.js"></script>
+    <script src="../Scripts/bomber/pattern/state/Context.js"></script>
+
+
+</head>
+<body>
+
+<canvas id="mapLayerCanvas" width="600" height="600"></canvas>
+<canvas id="mapLayerCanvas_buffer" width="600" height="600"></canvas>
+
+<canvas id="bombLayerCanvas" width="600" height="600"></canvas>
+<canvas id="fireLayerCanvas" width="600" height="600"></canvas>
+<canvas id="playerLayerCanvas" width="600" height="600"></canvas>
+<canvas id="enemyLayerCanvas" width="600" height="600"></canvas>
+
+
+<script type="text/javascript">
+    (function () {
+        YE.Main.getInstance().init();
+    })();
+</script>
+
+</body>
+</html>

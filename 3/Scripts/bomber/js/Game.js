@@ -1,31 +1,26 @@
-/**YEngine2D
- * 作者：YYC
- * 日期：2014-01-06
- * 电子邮箱：395976266@qq.com
- * QQ: 395976266
- * 博客：http://www.cnblogs.com/chaogex/
- */
-(function () {
+﻿(function () {
     var director = YE.Director.getInstance();
 
-    var Scene = YYC.Class(YE.Scene, {
+    var Game = YYC.Class({
+        Init: function () {
+        },
         Private: {
-//            _initScene: function () {
-//                this._addLayer();
-//                this._addElements();
-//                this._initEvent();
-//            },
-            _addLayer: function () {
-                this.addLayer("mapLayer", layerFactory.createMap());
-                this.addLayer("enemyLayer", layerFactory.createEnemy());
-                this.addLayer("playerLayer", layerFactory.createPlayer());
-                this.addLayer("bombLayer", layerFactory.createBomb());
-                this.addLayer("fireLayer", layerFactory.createFire());
+            _createScene: function () {
+                this.scene = new YE.Scene();
+                this.scene.addLayer("mapLayer", layerFactory.createMap());
+                this.scene.addLayer("enemyLayer", layerFactory.createEnemy(this.sleep));
+                this.scene.addLayer("playerLayer", layerFactory.createPlayer(this.sleep));
+                this.scene.addLayer("bombLayer", layerFactory.createBomb());
+                this.scene.addLayer("fireLayer", layerFactory.createFire());
             },
             _addElements: function () {
-                this.getLayer("mapLayer").addChilds(this._createMapLayerElement());
-                this.getLayer("playerLayer").addChilds(this._createPlayerLayerElement());
-                this.getLayer("enemyLayer").addChilds(this._createEnemyLayerElement());
+                var mapLayerElements = this._createMapLayerElement(),
+                    playerLayerElements = this._createPlayerLayerElement(),
+                    enemyLayerElements = this._createEnemyLayerElement();
+
+                this.scene.addSprites("mapLayer", mapLayerElements);
+                this.scene.addSprites("playerLayer", playerLayerElements);
+                this.scene.addSprites("enemyLayer", enemyLayerElements);
             },
             //创建并设置每个地图方格精灵，加入到元素数组中并返回。
             _createMapLayerElement: function () {
@@ -58,10 +53,10 @@
 
                 switch (mapData[i][j]) {
                     case 1:
-                        img = window.imgLoader.get("ground");
+                        img = YE.Main.getInstance().getImg("ground");
                         break;
                     case 2:
-                        img = window.imgLoader.get("wall");
+                        img = YE.Main.getInstance().getImg("wall");
                         break;
                     default:
                         break
@@ -73,6 +68,7 @@
                 var element = [],
                     player = spriteFactory.createPlayer();
 
+                player.init();
                 element.push(player);
 
                 return element;
@@ -82,10 +78,15 @@
                     enemy = spriteFactory.createEnemy(),
                     enemy2 = spriteFactory.createEnemy2();
 
+                enemy.init();
+                enemy2.init();
                 element.push(enemy);
                 element.push(enemy2);
 
                 return element;
+            },
+            _initLayer: function () {
+                this.scene.initLayer();
             },
             _initEvent: function () {
                 //监听整个document的keydown,keyup事件
@@ -98,7 +99,36 @@
                     window.keyState[e.keyCode] = false;
                 });
             },
-            _judgeGameState: function () {
+            _gameOver: function () {
+                director.stop();
+                alert("Game Over！");
+            },
+            _gameWin: function () {
+                director.stop();
+                alert("You Win！");
+            }
+        },
+        Public: {
+            sleep: 0,
+            scene: null,
+
+            init: function () {
+                //初始化游戏全局状态
+                window.gameState = window.bomberConfig.game.state.NORMAL;
+
+                window.subject = new YYC.Pattern.Subject();
+
+                this.sleep = 1000 / director.getFps();
+
+
+                this._createScene();
+                this._addElements();
+                this._initLayer();
+                this._initEvent();
+
+                window.subject.subscribe(this.scene.getLayer("mapLayer"), this.scene.getLayer("mapLayer").changeSpriteImg);
+            },
+            judgeGameState: function () {
                 switch (window.gameState) {
                     case window.bomberConfig.game.state.NORMAL:
                         break;
@@ -114,34 +144,19 @@
                         throw new Error("未知的游戏状态");
                 }
                 return false;
-            },
-            _gameOver: function () {
-                director.stop();
-                alert("Game Over！");
-            },
-            _gameWin: function () {
-                director.stop();
-                alert("You Win！");
-            }
-        },
-        Public: {
-            initData: function () {
-                //初始化游戏全局状态
-                window.gameState = window.bomberConfig.game.state.NORMAL;
-
-                window.subject = new YYC.Pattern.Subject();
-
-                this._addLayer();
-                this._addElements();
-                this._initEvent();
-
-                window.subject.subscribe(this.getLayer("mapLayer"), this.getLayer("mapLayer").changeSpriteImg);
-            },
-            onStartLoop: function () {
-                this._judgeGameState();
             }
         }
     });
 
-    window.Scene = Scene;
+    var game = new Game();
+
+    director.init = function () {
+        game.init();
+
+        //设置场景
+        this.setScene(game.scene);
+    };
+    director.onStartLoop = function () {
+        game.judgeGameState();
+    };
 }());
