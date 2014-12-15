@@ -1,10 +1,3 @@
-/**YEngine2D 内部辅助工具Tool
- * 作者：YYC
- * 日期：2013-12-21
- * 电子邮箱：395976266@qq.com
- * QQ: 395976266
- * 博客：http://www.cnblogs.com/chaogex/
- */
 (function () {
     var extend = function (destination, source) {
         var property = "";
@@ -218,7 +211,6 @@
              Tool.event.addEvent($("div"), "mousedown", _Handle);
              */
             addEvent: function (oTarget, sEventType, fnHandler) {
-                //            var oTarget = $(oTarget)[0];    //转换为dom对象
                 var dom = null,
                     i = 0,
                     len = 0,
@@ -336,13 +328,6 @@
                     e.mouseButton = e.button;
                 }
                 e.target = target;
-
-
-//                e.offsetLeft = $(target).offset().left;   //使用jquery的方法
-//                e.offsetTop = $(target).offset().top;     //使用jquery的方法
-//
-//                e.positionLeft = $(target).position().left;   //使用jquery的方法
-//                e.positionTop = $(target).position().top;   //使用jquery的方法
 
                 return e;
             },

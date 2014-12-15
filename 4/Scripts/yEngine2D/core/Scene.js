@@ -1,5 +1,4 @@
 (function () {
-
     namespace("YE").Scene = YYC.AClass({
         Init: function () {
             this.ye_layers = YE.Hash.create();

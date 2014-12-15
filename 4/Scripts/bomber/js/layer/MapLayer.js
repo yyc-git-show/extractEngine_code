@@ -46,7 +46,6 @@
             draw: function () {
                 this.___drawBuffer();
                 this.getContext().drawImage(this.___canvasBuffer, 0, 0);
-
             },
             clear: function () {
                 this.base();

@@ -24,25 +24,25 @@
                         currentState = new StandRightState();
                         break;
                     case "stand_left":
-                        currentState = new StandLeftState;
+                        currentState = new StandLeftState();
                         break;
                     case "stand_down":
-                        currentState = new StandDownState;
+                        currentState = new StandDownState();
                         break;
                     case "stand_up":
-                        currentState = new StandUpState;
+                        currentState = new StandUpState();
                         break;
                     case "walk_down":
-                        currentState = new WalkDownState;
+                        currentState = new WalkDownState();
                         break;
                     case "walk_up":
-                        currentState = new WalkUpState;
+                        currentState = new WalkUpState();
                         break;
                     case "walk_right":
-                        currentState = new WalkRightState;
+                        currentState = new WalkRightState();
                         break;
                     case "walk_left":
-                        currentState = new WalkLeftState;
+                        currentState = new WalkLeftState();
                         break;
                     default:
                         throw new Error("未知的状态");

@@ -44,7 +44,6 @@
             draw: function () {
                 this.___drawBuffer();
                 this.P_context.drawImage(this.___canvasBuffer, 0, 0);
-
             },
             clear: function () {
                 this.P_context.clearRect(0, 0, bomberConfig.canvas.WIDTH, bomberConfig.canvas.HEIGHT);

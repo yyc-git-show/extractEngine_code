@@ -1,7 +1,4 @@
-﻿/**
- *  扩展js的对象
- */
-(function () {
+﻿(function () {
     var global = this;
 
     function _isArray(val) {
@@ -21,30 +18,6 @@
 
      */
     String.prototype.contain = function (str) {
-        /* 使用RegExp对象来构造动态匹配。
-         注意！str是字符串，因此需要转义！
-
-         由于JavaScript字符串中的“\”是一个转义字符，因此，使用显式构造函数创建RegExp实例对象时，应将原始正则表达式中的“\”用“\\”替换。例如，在代码1.2中的两条语句是等价的。
-
-         代码1.2   转义字符中的“\”：1.2.htm
-
-         <script language="javascript">
-
-         var re1 = new RegExp("\\d{5}");
-
-         var re2 = /\d{5}/;
-
-         alert("re1="+re1+"\nre2="+re2);
-
-         </script>
-
-
-
-         由于正则表达式模式文本中的转义字符也是“\”，如果正则表达式中要匹配原义字符“\”，在正则表达式模式文本中要以“\\”来表示，当使用显式构造函数的方式创建RegExp实例对象的时候，就需要使用“\\\\”来表示原义字符“\”。
-
-         var re = new RegExp(\\\\)。
-
-         */
         var reg = new RegExp(str);
         if (this.match(reg)) {  //用this指针指代本体
             return true;
@@ -244,7 +217,7 @@
         }
 
 
-        /*  对每个数组元素调用iterator，返回调用iterator返回false的元素索引的数组 
+        /*  对每个数组元素调用iterator，返回调用iterator返回false的元素索引的数组
          如 source_arr = ["", "a", "b", ""];
          var result = source_arr.judge(arr, function (value, index) {
          if (value === "") {

@@ -1,10 +1,3 @@
-/**YEngine2D 层类
- * 作者：YYC
- * 日期：2013-12-28
- * 电子邮箱：395976266@qq.com
- * QQ: 395976266
- * 博客：http://www.cnblogs.com/chaogex/
- */
 (function () {
     namespace("YE").Layer = YYC.AClass({
         Init: function (id, zIndex, position) {

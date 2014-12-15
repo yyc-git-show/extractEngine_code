@@ -76,11 +76,7 @@
             getFps: function () {
                 return this._fps;
             },
-            // getPixPerFrame: function (speed) {
-            //     return speed / this._fps;
-            // },
             stop: function () {
-//                window.cancelNextRequestAnimationFrame(this._loop);
                 this._gameState = GameState.STOP;
             },
 

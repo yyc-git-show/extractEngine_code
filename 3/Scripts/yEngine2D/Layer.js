@@ -1,10 +1,3 @@
-/**YEngine2D 层类
- * 作者：YYC
- * 日期：2013-12-28
- * 电子邮箱：395976266@qq.com
- * QQ: 395976266
- * 博客：http://www.cnblogs.com/chaogex/
- */
 (function () {
     /**
      * 枚举量移到Layer外面。
@@ -27,12 +20,8 @@
             }
         },
         Protected: {
-            //*共用的变量（可读、写）
-
             P_canvas: null,
             P_context: null,
-
-            //*共用的方法（可读）
 
             P_isChange: function () {
                 return this.__state === State.CHANGE;
@@ -92,7 +81,6 @@
             },
             change: function () {
             },
-            //统一绘制
             draw: function () {
             },
             //游戏主循环调用的方法

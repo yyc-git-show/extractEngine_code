@@ -1,12 +1,3 @@
-/**YEngine2D 精灵动画帧类
- * 存储精灵所有的动画帧信息，它为hash结构，元素为Animation
- *
- * 作者：YYC
- * 日期：2014-01-11
- * 电子邮箱：395976266@qq.com
- * QQ: 395976266
- * 博客：http://www.cnblogs.com/chaogex/
- */
 (function () {
     namespace("YE").AnimationFrame = YYC.Class({
         Init: function () {

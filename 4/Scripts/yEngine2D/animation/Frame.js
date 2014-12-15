@@ -1,10 +1,3 @@
-/**YEngine2D 单帧类，保存单帧的信息
- * 作者：YYC
- * 日期：2014-01-11
- * 电子邮箱：395976266@qq.com
- * QQ: 395976266
- * 博客：http://www.cnblogs.com/chaogex/
- */
 (function () {
     namespace("YE").Frame = YYC.Class({
         Init: function (img, rect) {

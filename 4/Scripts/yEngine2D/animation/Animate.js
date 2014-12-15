@@ -1,11 +1,4 @@
-﻿/**YEngine2D 帧管理类
- * 作者：YYC
- * 日期：2014-01-11
- * 电子邮箱：395976266@qq.com
- * QQ: 395976266
- * 博客：http://www.cnblogs.com/chaogex/
- */
-(function () {
+﻿(function () {
     namespace("YE").Animate = YYC.Class({
         Init: function (animation) {
             this.ye_anim = animation;

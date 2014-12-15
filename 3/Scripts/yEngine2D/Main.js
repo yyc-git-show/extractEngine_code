@@ -1,10 +1,3 @@
-/**YEngine2D 入口Main
- * 作者：YYC
- * 日期：2013-12-21
- * 电子邮箱：395976266@qq.com
- * QQ: 395976266
- * 博客：http://www.cnblogs.com/chaogex/
- */
 (function () {
     var _instance = null;
 

@@ -420,15 +420,11 @@
     }
 
     function _reset() {
-//        arr_path_out = [];
         arr_map = [];
-//        arr_map_tmp = window.mapData;
-//        map_w = arr_map_tmp.length;
         map_w = null;
 
         open_list = []; //创建OpenList
         close_list = []; //创建CloseList
-//        tmp = []; //存放当前节点的八个方向的节点
     };
 
 

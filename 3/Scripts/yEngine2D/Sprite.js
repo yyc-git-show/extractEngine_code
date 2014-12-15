@@ -57,7 +57,7 @@
             },
             Virtual: {
                 init: function () {
-                    //初始化时显示默认动画
+                    //显示默认动画
                     this.setAnim(this.defaultAnimId);
                 },
                 // 更新精灵当前状态.
